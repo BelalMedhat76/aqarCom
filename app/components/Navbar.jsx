@@ -1,7 +1,7 @@
 import React from 'react'
-import TopNav from './topNav'
-import MiddleNav from './middleNav'
-import BottomNav from './bottomNav'
+import TopNav from './navbar/topNav'
+import MiddleNav from './navbar/middleNav'
+import BottomNav from './navbar/bottomNav'
 
 const Navbar = () => {
   return (

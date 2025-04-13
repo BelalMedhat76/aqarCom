@@ -27,7 +27,7 @@ const MostPopular = () => {
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4  gap-6">
         {popularProjects.map((project) => (
           <div
             key={project.id}
@@ -41,10 +41,10 @@ const MostPopular = () => {
               height={250}
               className="w-full h-52 object-cover"
             />
-            <div className="p-4 space-y-1">
+            <div className="p-4 space-y-1 relative h-[180px] ">
               <p className="font-bold text-lg">{project.price}</p>
-              <span className="bg-yellow-400 text-white px-3 py-1 rounded text-sm">
-                {project.type}
+              <span className="bg-yellow-400 text-white px-3 py-1 absolute right-4 top-3 ml-3 rounded text-sm">
+                {project.moraltype}
               </span>
               <p className="text-gray-600 capitalize">{project.title}</p>
               <div className="flex items-center text-sm text-gray-500">
@@ -52,9 +52,10 @@ const MostPopular = () => {
                 {project.location}
               </div>
               <p className="text-sm text-gray-400">{project.date}</p>
-              <div className="text-sm font-semibold text-right">
-                {project.agency}
-              </div>
+              <div className="bg-yellow-400 text-white w-[90%]   text-center py-2 absolute bottom-3 left-1/2 transform -translate-x-1/2 rounded text-sm">
+  {project.agency}
+</div>
+
             </div>
           </div>
         ))}
