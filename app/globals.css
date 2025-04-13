@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family:Tajawal,sans-serif!important; 
+  margin: 0;
+  padding: 0;
+}
+
+.partners-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.partners-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 15s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 10s linear infinite;
+}
+
+.group:hover .animate-spin-slow {
+  animation-duration: 8s;
+}
+
+.group:hover .animate-spin-reverse {
+  animation-duration: 5s;
+}
+
+.partner-card {
+  opacity: 0;
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* globals.css */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

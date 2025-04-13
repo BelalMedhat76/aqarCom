@@ -1,0 +1,13 @@
+{  
+  "welcome_Belal":"مرحبا بلال",
+  "nav": {
+    "home": "الرئيسية",
+    "about": "من نحن",
+    "services": "الخدمات",
+    "products": "المنتجات",
+    "industry": "الصناعة",
+    "partners": "الشركاء",
+    "profile": "الملف الشخصي",
+    "contact": "اتصل بنا"
+  }
+}

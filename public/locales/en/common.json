@@ -1,0 +1,13 @@
+{ 
+  "welcome_Belal":"welcome_Belal",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "products": "Products",
+    "industry": "Industry",
+    "partners": "Partners",
+    "profile": "Profile",
+    "contact": "Contact"
+  }
+}
