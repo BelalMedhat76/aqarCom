@@ -15,6 +15,6 @@ This is a modern and responsive web application built with **Next.js 15+**, supp
 
 ```bash
 git clone 
-cd your-nextjs-repo
+cd your-nextjs-repo https://github.com/BelalMedhat76/aqarCom.git
 npm install
 npm run dev
