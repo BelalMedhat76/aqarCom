@@ -94,7 +94,7 @@ const MiddleNav = () => {
         {/* Mobile & Tablet Nav */}
         <div className="lg:hidden flex justify-between items-center w-full">
           <a
-            href="#"
+            href="/map"
             className="text-black hover:text-primary transition duration-300 flex items-center"
           >
             <FaMapMarkerAlt
