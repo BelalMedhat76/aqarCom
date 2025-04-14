@@ -1,50 +1,43 @@
-'use client';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, EffectCreative } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-creative';
+"use client";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay, EffectFade } from "swiper/modules";
+import { useTranslation } from "react-i18next";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade"; 
 const slides = [
   {
-    image: 'slide1.png',
-    title: "Don't miss the opportunity to acquire ",
-    subtitle: 'a wonderful property in our location.',
+    image: "images/back3.jpg",
+    titleKey: "heroSlider.slide1.title",
+    subtitleKey: "heroSlider.slide1.subtitle",
   },
   {
-    image: 'slide1.png',
-    title: "Don't miss the opportunity to acquire ",
-    subtitle: 'a wonderful property in our location.',
+    image: "/images/back1.jpg",
+    titleKey: "heroSlider.slide2.title",
+    subtitleKey: "heroSlider.slide2.subtitle",
   },
   {
-    image: 'slide1.png',
-    title: "Don't miss the opportunity to acquire ",
-    subtitle: 'a wonderful property in our location.',
+    image: "images/back2.jpg",
+    titleKey: "heroSlider.slide3.title",
+    subtitleKey: "heroSlider.slide3.subtitle",
   },
 ];
+const HeroSlider = () => {
+  const { t } = useTranslation();
 
-const HeroSlider=()=> {
   return (
-    <div className="w-full h-[80vh] relative">
+    <div className="w-full h-[80vh] relative ">
       <Swiper
-        modules={[Pagination, Autoplay, EffectCreative]}
+        modules={[Pagination, Autoplay, EffectFade]} 
         pagination={{ clickable: true }}
-        loop={true}
+        loop={true} 
         autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
+          delay: 5000, 
+          disableOnInteraction: false, 
         }}
-        effect="creative"
-        creativeEffect={{
-          prev: {
-            shadow: true,
-            translate: [0, 0, -400],
-          },
-          next: {
-            translate: ['100%', 0, 0],
-          },
-        }}
+        effect="fade" 
         className="h-full"
       >
         {slides.map((slide, index) => (
@@ -56,11 +49,18 @@ const HeroSlider=()=> {
               }}
             >
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-                <h1 className="text-white text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">
-                  {slide.title}
+                <h1
+                  className="text-white text-3xl md:text-5xl font-extrabold mb-4"
+                  data-aos="fade-up"
+                >
+                  {t(slide.titleKey)}
                 </h1>
-                <p className="text-white text-base font-bold md:text-4xl" data-aos="fade-up" data-aos-delay="200">
-                  {slide.subtitle}
+                <p
+                  className="text-white text-3xl  md:text-5xl font-extrabold"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  {t(slide.subtitleKey)}
                 </p>
               </div>
             </div>
@@ -69,7 +69,6 @@ const HeroSlider=()=> {
       </Swiper>
     </div>
   );
-}
-
+};
 
 export default HeroSlider;

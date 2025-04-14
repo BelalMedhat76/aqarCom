@@ -1,11 +1,13 @@
-
-
 "use client";
 import { useEffect, useState, useRef } from "react";
 import { FaMapMarkerAlt, FaSearch, FaTimes } from "react-icons/fa";
 import AOS from "aos";
+import FilterButtons from "./FilterBar";
+import SearchForm from "./SearchForm";
+import { useTranslation } from "react-i18next";
+import { useRouter } from "next/navigation";
 
-const Card = () => {
+const ProjectCard = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState("All");
   const [area, setArea] = useState("");
@@ -18,12 +20,14 @@ const Card = () => {
   const scrollLeft = useRef(0);
   const [mapVisible, setMapVisible] = useState(false);
 
-  const [currentPage, setCurrentPage] = useState(1); // Track the current page
-  const cardsPerPage = 8; 
+  const [currentPage, setCurrentPage] = useState(1);
+  const cardsPerPage = 8;
+  const { t } = useTranslation();
+  const router = useRouter();
 
   useEffect(() => {
     AOS.init();
-    fetch("/realestate.json")
+    fetch("/data/realestate.json")
       .then((res) => res.json())
       .then((json) => setData(json));
   }, []);
@@ -54,7 +58,6 @@ const Card = () => {
 
   const handleSearch = () => {};
 
-  // Pagination logic
   const indexOfLastCard = currentPage * cardsPerPage;
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currentCards = filteredData.slice(indexOfFirstCard, indexOfLastCard);
@@ -63,7 +66,6 @@ const Card = () => {
     setCurrentPage(pageNumber);
   };
 
-  // Scroll interaction
   const handleMouseDown = (e) => {
     isDragging.current = true;
     scrollRef.current.classList.add("cursor-grabbing");
@@ -95,175 +97,74 @@ const Card = () => {
 
   return (
     <main className="p-6 max-w-7xl mx-auto space-y-6">
-      {/* Search Form */}
-      <div
-        className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-10"
-        data-aos="fade-up"
-      >
-        {/* Area Select */}
-        <div className="relative w-full sm:w-1/3">
-          <select
-            className="w-full py-3 px-4 bg-white text-gray-800 rounded-lg shadow-md focus:ring-0 focus:outline-none"
-            value={area}
-            onChange={(e) => setArea(e.target.value)}
-          >
-            <option value="">Select Area</option>
-            {areas.map((areaOption) => (
-              <option key={areaOption} value={areaOption}>
-                {areaOption}
-              </option>
-            ))}
-          </select>
-          {area && (
-            <FaTimes
-              className="absolute right-7 top-1/2 transform -translate-y-1/2 text-gray-600 cursor-pointer"
-              onClick={() => setArea("")}
-            />
-          )}
-        </div>
+      <SearchForm
+        area={area}
+        setArea={setArea}
+        city={city}
+        setCity={setCity}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        areas={areas}
+        cities={cities}
+        handleSearch={handleSearch}
+      />
 
-        {/* City Select */}
-        <div className="relative w-full sm:w-1/3">
-          <select
-            className="w-full py-3 px-4 bg-white text-gray-800 rounded-lg shadow-md focus:ring-0 focus:outline-none"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          >
-            <option value="">Select City</option>
-            {cities.map((cityOption) => (
-              <option key={cityOption} value={cityOption}>
-                {cityOption}
-              </option>
-            ))}
-          </select>
-          {city && (
-            <FaTimes
-              className="absolute right-7 top-1/2 transform -translate-y-1/2 text-gray-600 cursor-pointer"
-              onClick={() => setCity("")}
-            />
-          )}
-        </div>
-
-        {/* Search Input */}
-        <div className="relative w-full sm:w-2/3">
-          <input
-            type="text"
-            className="w-full py-3 pl-10 pr-4 bg-white text-gray-800 rounded-lg shadow-md focus:ring-0 focus:outline-none"
-            placeholder="Find the interface"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600" />
-        </div>
-
-        {/* Search Button */}
-        <div className="relative w-full sm:w-auto">
-          <button
-            onClick={handleSearch}
-            className="w-full px-10 sm:w-auto bg-gradient-to-r from-yellow-400 to-yellow-500 text-white py-3 rounded-lg shadow-md hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 flex items-center justify-center"
-          >
-            <FaSearch className="mr-2" />
-            Search
-          </button>
-        </div>
-      </div>
-
-      {/* Filter Buttons with drag scroll */}
-      <div
-        ref={scrollRef}
-        onMouseDown={handleMouseDown}
-        onMouseLeave={handleMouseLeave}
-        onMouseUp={handleMouseUp}
-        onMouseMove={handleMouseMove}
-        className="flex gap-3 mt-6 overflow-x-auto whitespace-nowrap px-2 py-2 scrollbar-hide cursor-grab"
-      >
-        {[
-          "All",
-          "Apartment For Rent",
-          "Apartment For Sell",
-          "Land For Rent",
-          "Land For Sell",
-          "Building For Rent",
-          "Building For Sell",
-          "Villa For Rent",
-          "Villa For Sell",
-          "Stairs For Rent",
-          "Stairs For Sell",
-          "Roof For Rent",
-          "Roof For Sell",
-          "Farm For Rent",
-          "Farm For Sell",
-          "House For Rent",
-          "House For Sell",
-          "Room For Rent",
-          "Room For Sell",
-          "Office For Rent",
-          "Office For Sell",
-        ].map((cat) => (
-          <button
-            key={cat}
-            className={`px-4 py-1 rounded-full border ${
-              filter === cat ? "bg-yellow-400 text-white" : "bg-gray-100"
-            } hover:bg-yellow-300 transition-all duration-300 whitespace-nowrap`}
-            onClick={() => setFilter(cat)}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+      <FilterButtons filter={filter} setFilter={setFilter} />
 
       {/* Cards */}
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 px-1 sm:px-10 gap-6 mt-6">
         {currentCards.map((item) => (
           <div
+            onClick={() => router.push(`/projects/${item.id}`)}
             key={item.id}
-            className="shadow-lg rounded-xl overflow-hidden"
+            className="shadow-lg rounded-xl overflow-hidden cursor-pointer"
             data-aos="fade-up"
           >
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-52 object-cover"
+              className="w-full h-52 object-cover curser-pointer"
             />
-            <div className="p-4 space-y-1">
-              <p className="font-bold text-lg">{item.price}</p>
-              <span className="bg-yellow-400 text-white px-3 py-1 rounded text-sm">
-                {item.type}
+            <div className="p-4 space-y-1 relative h-[180px] ">
+              <p className="font-bold text-lg">{t(`price.${item.price}`)}</p>
+              <span className="bg-yellow-400 text-black px-3 py-1 absolute right-4 top-3 ml-3 rounded text-sm">
+                {t(`moraltype.${item.moraltype}`)}
               </span>
-              <p className="text-gray-600 capitalize">{item.title}</p>
+              <p className="text-gray-600 capitalize">
+                {t(`titles.${item.title}`)}
+              </p>
               <div className="flex items-center text-sm text-gray-500">
                 <FaMapMarkerAlt className="mr-1" />
-                {item.location}
+                {t(`location.${item.location}`)}
               </div>
               <p className="text-sm text-gray-400">{item.date}</p>
-              <div className="text-sm font-semibold text-right">
-                {item.agency}
+              <div className="bg-yellow-400 text-black w-[90%]   text-center py-2 absolute bottom-3 left-1/2 transform -translate-x-1/2 rounded text-md">
+                {t(`agency.${item.agency}`)}
               </div>
             </div>
           </div>
         ))}
       </div>
-
       {/* Pagination */}
       <div className="flex justify-center gap-2 mt-6">
-        {Array.from({ length: Math.ceil(filteredData.length / cardsPerPage) }).map(
-          (_, index) => (
-            <button
-              key={index}
-              onClick={() => paginate(index + 1)}
-              className={`px-4 py-2 rounded-lg ${
-                currentPage === index + 1
-                  ? "bg-yellow-500 text-white"
-                  : "bg-gray-100 text-gray-700"
-              } hover:bg-yellow-400 transition-all duration-300`}
-            >
-              {index + 1}
-            </button>
-          )
-        )}
+        {Array.from({
+          length: Math.ceil(filteredData.length / cardsPerPage),
+        }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => paginate(index + 1)}
+            className={`px-4 py-2 rounded-lg ${
+              currentPage === index + 1
+                ? "bg-yellow-500 text-white"
+                : "bg-gray-100 text-gray-700"
+            } hover:bg-yellow-400 transition-all duration-300`}
+          >
+            {index + 1}
+          </button>
+        ))}
       </div>
     </main>
   );
 };
 
-export default Card;
+export default ProjectCard;

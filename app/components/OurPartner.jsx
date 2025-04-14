@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-
+import { useTranslation } from "react-i18next";
 const partnerLogos = [
   "/images/partner1.png",
   "/images/partner2.png",
@@ -18,14 +18,16 @@ const partnerLogos = [
 ];
 
 const OurPartner = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="w-full py-12 bg-white mb-10">
-      <h2 className="text-3xl font-extrabold text-center mb-1">Success Partners</h2>
-      <p className="text-sm md:text-3xl text-gray-600  mt-2 text-center mb-8">
-      Partners whose partnership we are proud of
-
-
-        </p>
+      <h2 className="text-3xl font-extrabold text-center mb-1">
+        {t("partners.title")}
+      </h2>
+      <p className="text-sm md:text-3xl text-gray-600 mt-2 text-center mb-8">
+        {t("partners.subtitle")}
+      </p>
       <div className="max-w-6xl mx-auto">
         <Swiper
           modules={[Autoplay]}
@@ -43,7 +45,7 @@ const OurPartner = () => {
                 <img
                   src={logo}
                   alt={`Partner ${index + 1}`}
-                  className="h-full object-contain grayscale hover:grayscale-0 transition-all w-[150px]  duration-300"
+                  className="h-full object-contain   transition-all w-[150px]  duration-300"
                 />
               </div>
             </SwiperSlide>

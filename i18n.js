@@ -11,8 +11,8 @@ i18n
       en: { translation: en },
       ar: { translation: ar },
     },
-    lng: 'en', // default language
-    fallbackLng: 'en', // if language is not available, fallback to English
+    lng: 'ar', // default language
+    fallbackLng: 'ar', // if language is not available, fallback to English
     interpolation: {
       escapeValue: false, // React already escapes HTML
     },

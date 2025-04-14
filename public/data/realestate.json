@@ -8,7 +8,7 @@
     "price": "50,000 SR",
     "date": "13-03-2025",
     "image": "/images/card1.jpg",
-    "agency": "حسن المالكي للتطوير العقاري",
+    "agency": "Hassan Real Estate ",
     "area": "Makkah",
     "city": "Jida"
   },
@@ -21,7 +21,7 @@
     "price": "600,000 SR",
     "date": "26-02-2025",
     "image": "/images/card2.jpg",
-    "agency": "النهضة السكانية العقارية",
+    "agency": "Al-Nahda Real Estate",
     "area": "Asir",
     "city": "Abha"
   },
@@ -275,5 +275,213 @@
     "agency": "Sky Business Center",
     "area": "Makkah",
     "city": "Jida"
+  },
+
+  {
+    "id": 21,
+    "title": "Modern Apartment",
+    "type": "Apartment For Rent",
+    "moraltype":"Apartment",
+    "location": "Jida",
+    "price": "50,000 SR",
+    "date": "13-03-2025",
+    "image": "/images/card4.jpg",
+    "agency": "Hassan Al-Maliki Real Estate Development",
+    "area": "Makkah",
+    "city": "Jida"
+  },
+  {
+    "id": 22,
+    "title": "Luxury Apartment",
+    "type": "Apartment For Rent",
+    "moraltype":"Apartment",
+    "location": "Abha",
+    "price": "600,000 SR",
+    "date": "26-02-2025",
+    "image": "/images/card6.jpg",
+    "agency": "النهضة السكانية العقارية",
+    "area": "Asir",
+    "city": "Abha"
+  },
+  {
+    "id": 23,
+    "title": "Spacious Land",
+    "type": "Land For Rent",
+    "moraltype":"Land",
+    "location": "Madinah",
+    "price": "35,000 SR",
+    "date": "01-01-2025",
+    "image": "/images/card2.jpg",
+    "agency": "Al Noor Properties",
+    "area": "Madinah",
+    "city": "Madinah"
+  },
+  {
+    "id": 24,
+    "title": "Investment Land",
+    "type": "Land For Sell",
+    "moraltype":"Land",
+
+    "location": "Jubail",
+    "price": "1,200,000 SR",
+    "date": "03-02-2025",
+    "image": "/images/card7.jpg",
+    "agency": "Al Shamal Real Estate",
+    "area": "Eastern",
+    "city": "Jubail"
+  },
+  {
+    "id": 25,
+    "title": "Investment Land",
+    "type": "Building For Rent",
+    "moraltype":"Building",
+
+    "location": "Riyadh",
+    "price": "200,000 SR",
+    "date": "05-02-2025",
+    "image": "/images/card3.jpg",
+    "agency": "Vision Builders",
+    "area": "Riyadh",
+    "city": "Riyadh"
+  },
+  {
+    "id": 26,
+    "title": "Commercial Building",
+    "type": "Building For Sell",
+    "moraltype":"Building",
+
+    "location": "Dammam",
+    "price": "3,500,000 SR",
+    "date": "06-02-2025",
+    "image": "/images/card4.jpg",
+    "agency": "Eastern Developments",
+    "area": "Eastern",
+    "city": "Dammam"
+  },
+  {
+    "id": 27,
+    "title": "Private Villa",
+    "type": "Villa For Rent",
+    "moraltype":"Villa",
+
+    "location": "Jizan",
+    "price": "75,000 SR",
+    "date": "07-02-2025",
+    "image": "/images/card8.jpg",
+    "agency": "Al Bayan Villas",
+    "area": "Jizan",
+    "city": "Jizan"
+  },
+  {
+    "id": 28,
+    "title": "Elegant Villa",
+    "type": "Villa For Sell",
+    "moraltype":"Villa",
+
+    "location": "Tabuk",
+    "price": "1,800,000 SR",
+    "date": "08-02-2025",
+    "image": "/images/card2.jpg",
+    "agency": "Dream Homes",
+    "area": "Tabuk",
+    "city": "Tabuk"
+  },
+  {
+    "id":29,
+    "title": "Stair Access Area",
+    "type": "Stairs For Rent",
+    "moraltype":"Stairs",
+
+    "location": "Najran",
+    "price": "5,000 SR",
+    "date": "09-02-2025",
+    "image": "/images/card9.jpg",
+    "agency": "Urban Access",
+    "area": "Najran",
+    "city": "Najran"
+  },
+  {
+    "id": 30,
+    "title": "Luxury Staircase",
+    "type": "Stairs For Sell",
+    "moraltype":"Stairs",
+
+    "location": "Hail",
+    "price": "45,000 SR",
+    "date": "10-02-2025",
+    "image": "/images/card1.jpg",
+    "agency": "Modern Build Co.",
+    "area": "Hail",
+    "city": "Hail"
+  },
+  {
+    "id": 31,
+    "title": "Open Roof Space",
+    "type": "Roof For Rent",
+    "moraltype":"Roof",
+
+    "location": "Buraidah",
+    "price": "10,000 SR",
+    "date": "11-02-2025",
+    "image": "/images/card9.jpg",
+    "agency": "Skyline Realty",
+    "area": "Qassim",
+    "city": "Buraidah"
+  },
+  {
+    "id": 32,
+    "title": "Roof Terrace",
+    "type": "Roof For Sell",
+    "moraltype":"Roof",
+
+    "location": "Yanbu",
+    "price": "120,000 SR",
+    "date": "12-02-2025",
+    "image": "/images/card10.jpg",
+    "agency": "Sunset Properties",
+    "area": "Madinah",
+    "city": "Yanbu"
+  },
+  {
+    "id": 33,
+    "title": "Agricultural Farm",
+    "type": "Farm For Rent",
+    "moraltype":"Farm",
+
+    "location": "Al Ahsa",
+    "price": "90,000 SR",
+    "date": "13-02-2025",
+    "image": "/images/card3.jpg",
+    "agency": "Green Land Developers",
+    "area": "Eastern",
+    "city": "Al Ahsa"
+  },
+  {
+    "id": 34,
+    "title": "Farm Land For Sell",
+    "type": "Farm For Sell",
+    "moraltype":"Farm",
+
+    "location": "Taif",
+    "price": "2,300,000 SR",
+    "date": "14-02-2025",
+    "image": "/images/card4.jpg",
+    "agency": "Harvest Realty",
+    "area": "Makkah",
+    "city": "Taif"
+  },
+  {
+    "id": 35,
+    "title": "Classic House",
+    "type": "House For Rent",
+    "moraltype":"House",
+
+    "location": "Sakaka",
+    "price": "40,000 SR",
+    "date": "15-02-2025",
+    "image": "/images/card11.jpg",
+    "agency": "Al Dar Real Estate",
+    "area": "Al Jouf",
+    "city": "Sakaka"
   }
 ]

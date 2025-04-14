@@ -28,7 +28,12 @@ const AddRequestForm = () => {
                 Select {label}
               </option>
               {items.map((item) => (
-                <option key={item} className="cursor-pointer rounderd h-[100px] overflow-scroll">{item}</option>
+                <option
+                  key={item}
+                  className="cursor-pointer rounderd h-[100px] overflow-scroll"
+                >
+                  {item}
+                </option>
               ))}
             </select>
             <FaChevronDown className="absolute right-3 top-11 text-gray-500 pointer-events-none" />
