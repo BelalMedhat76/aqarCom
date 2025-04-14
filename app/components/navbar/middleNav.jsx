@@ -173,8 +173,8 @@ const MiddleNav = () => {
             onClick={closeMenu}
             className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-4 py-3 mt-6 rounded-md hover:bg-green-700 flex items-center text-lg font-semibold shadow-xl transition"
           >
-            <FaUserAlt className="mr-2 text-xl " />
-            {t("login")}
+            <FaUserAlt className="mr-2 text-xl " onClick={goToLogin} />
+           <span onClick={goToLogin}> {t("login")}</span>
           </button>
         </div>
       )}
